@@ -12,10 +12,12 @@ function appendValue(value) {
 }
 
 function calculate() {
-    let display = document.getElementById("display");
-    try {
-        display.value = eval(display.value);
-    } catch {
-        display.value = "Error";
+    let display = document.getElementById("display").value;
+    if (display) {
+        try {
+            document.getElementById("display").value = eval(display);
+        } catch {
+            document.getElementById("display").value = "Error";
+        }
     }
 }

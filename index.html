@@ -3,33 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Multi-Calculator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" id="display" disabled>
-        <div class="buttons">
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="deleteLast()">DEL</button>
-            <button onclick="appendValue('/')">/</button>
-            <button onclick="appendValue('*')">*</button>
-            <button onclick="appendValue('7')">7</button>
-            <button onclick="appendValue('8')">8</button>
-            <button onclick="appendValue('9')">9</button>
-            <button onclick="appendValue('-')">-</button>
-            <button onclick="appendValue('4')">4</button>
-            <button onclick="appendValue('5')">5</button>
-            <button onclick="appendValue('6')">6</button>
-            <button onclick="appendValue('+')">+</button>
-            <button onclick="appendValue('1')">1</button>
-            <button onclick="appendValue('2')">2</button>
-            <button onclick="appendValue('3')">3</button>
-            <button onclick="calculate()">=</button>
-            <button onclick="appendValue('0')">0</button>
-            <button onclick="appendValue('.')">.</button>
+
+    <h1>Multi-Calculator</h1>
+
+    <div class="calculator-container">
+        <!-- Scientific Calculator -->
+        <div class="calculator">
+            <h3>Scientific Calculator</h3>
+            <input type="text" id="scientific-display" disabled>
+            <div>
+                <button onclick="appendToDisplay('7')">7</button>
+                <button onclick="appendToDisplay('8')">8</button>
+                <button onclick="appendToDisplay('9')">9</button>
+                <button onclick="appendToDisplay('/')">/</button>
+                <button onclick="appendToDisplay('Math.sin(')">sin</button>
+            </div>
+            <div>
+                <button onclick="appendToDisplay('4')">4</button>
+                <button onclick="appendToDisplay('5')">5</button>
+                <button onclick="appendToDisplay('6')">6</button>
+                <button onclick="appendToDisplay('*')">*</button>
+                <button onclick="appendToDisplay('Math.cos(')">cos</button>
+            </div>
+            <div>
+                <button onclick="appendToDisplay('1')">1</button>
+                <button onclick="appendToDisplay('2')">2</button>
+                <button onclick="appendToDisplay('3')">3</button>
+                <button onclick="appendToDisplay('-')">-</button>
+                <button onclick="appendToDisplay('Math.tan(')">tan</button>
+            </div>
+            <div>
+                <button onclick="appendToDisplay('0')">0</button>
+                <button onclick="appendToDisplay('.')">.</button>
+                <button onclick="calculateScientific()">=</button>
+                <button onclick="appendToDisplay('+')">+</button>
+                <button onclick="clearDisplay()">C</button>
+            </div>
         </div>
+
+        <!-- Other calculators go here... (Square Meter, Radical, Factorial, etc.) -->
+        <div class="calculator">
+            <h3>Square Meter Calculator</h3>
+            <input type="number" id="length" placeholder="Length in meters">
+            <input type="number" id="width" placeholder="Width in meters">
+            <button onclick="calculateSquareMeters()">Calculate Area</button>
+            <p class="result" id="area-result"></p>
+        </div>
+
+        <div class="calculator">
+            <h3>Radical Number Calculator</h3>
+            <input type="number" id="radical-number" placeholder="Enter number">
+            <button onclick="calculateRadical()">Calculate √</button>
+            <p class="result" id="radical-result"></p>
+        </div>
+
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
